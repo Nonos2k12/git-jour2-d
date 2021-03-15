@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <header class="row">
+            <nav class="navbar navbar-expand navbar-dark bg-dark">
+                <a href="" class="navbar-brand">Découverte Git</a>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Présentation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Nous contacter</a>
+                    </li>
+                </ul>
+                <form class="d-flex ms-auto">
+                    <input type="text" class="form-control">
+                    <input type="submit" class="btn btn-outline-danger ms-2">
+                </form>
+                <!-- 
+                    m margin 
+                    s start (à gauche)
+                    -
+                    0 et 5 
+                    auto 
+                    => documentation bootstrap 
+                -->
+            </nav>
+        </header>
+        <section class="row">
+            <h1>Bienvenu</h1>
+            <form action="">
+                <div class="form-group">
+                    <label for="nom">nom</label>
+                    <input type="text" name="nom" class="form-control" placeholder="votre nom" id="nom">
+                </div>
+                <div class="form-group mt-2">
+                    <label for="email">email</label>
+                    <input type="email" name="email" class="form-control" placeholder="votre@email.fr" id="email">
+                </div>
+                <div class="form-group mt-2">
+                    <label for="origine">Origine</label>
+                    <select name="origine" id="origine" class="form-select">
+                        <option value=""></option>
+                        <option value="France">France</option>
+                        <option value="Belgique">Belgique</option>
+                        <option value="Allemagne">Allemagne</option>
+                        <option value="Tunisie">Tunisie</option>
+                    </select>
+                </div>
+                <div class="form-group mt-2">
+                    <label for="message">message</label>
+                    <textarea name="message" id="message" class="form-control" placeholder="votre message" ></textarea>
+                </div>
+                <div class="form-group mt-2">
+                    <input type="submit" class="btn btn-success">
+                </div>
+            </form>
+        </section>
+        <!-- 
+            bootstrap au lieu d'avoir à écrire toi même 
+            margin-left : 20px ; dans un fichier css 
+            à la place tu vas utiliser des class utilitaires
+            mt-2 : margin top - 2 => 20px
+            margin-top : 50px;
+            margin-left : 40px;
+        -->
+        <hr>
+        <section class="row">
+            <h2>nouvelle section</h2>
+        </section>
+écrire dedans
+je peux écrire dans le fichier autant que je veux 
+    </div>
+</body>
+</html>
+
+
+-----------------------------------
+
+<!-- 
+    cd jour1
+    cd déplacer dans le dossier jour1
+
+    git init 
+    créer un repository qui va stocker les versions de notre travail dans le dossier jour1
+
+    git status
+    commande qui va vous donner des informations 
+    Etat entre dossier caché ET le dossier jour1 => les différences entre ces dossiers
+
+    On branch master => branch par défaut (plus tard ce concept)
+    No commits yet => pour l'instant rien n'est enregistré dans le dossier caché
+
+    Untracked files: : attention je constate que dans le dossier jour1
+    j'ai deux fichiers 00-rappels-support.txt et 01-commandes-base.html qui ne sont pas suivis dans le dossier caché 
+    souhaitez vous les suivre ?? 
+    use "git add <file>..." to include in what will be committed
+
+    nothing added to commit but untracked files present (use "git add" to track)
+    actuellement (en l'état actuel des commandes réalisées) rien a commit (enregistré)
+    Mais il y a des fichiers untracked 
+     
+    4ème commande 
+    git add 00-rappels-support.txt 01-commandes-base.html
+
+    git add suivi d'une ou de plusieurs noms de fichiers 
+    => cette commande va permettre de valider le contenu des fichiers mentionnés
+    => ces fichiers peuvent être copiés dans le répository 
+    => OK pour ces deux fichiers leur contenu est conforme => on peut (via une commande qui arrive ) => les enregistrer dans le répository
+    
+    5ème commande 
+    git commit -m "start"
+
+    cette commande permet d'enregistrer dans le répository une copie des fichiers 
+    00-rappels-support.txt 01-commandes-base.html
+
+    => quelles fichiers tu veux enregistrer ? => git add 
+    => effectue l'enregistrement => git commit 
+
+
+    // on vient de voir 4 commandes de base de git 
+    // git init => créer un repository / stocker le versionning / 
+    saisir 1 seule fois 
+    // git status => donne des informations de la différence entre l'état du dossier de travail et l'état du repository 
+    => est ce que l'un est synchronisé avec l'autre 
+    // git add => permet de sélectionner le ou les fichiers que l'on veut enregistrer dans le repository 
+    // git commit => cette commande qui effectue l'enregistrement (Photo instantanée)
+    snapshot dans le répository 
+
+    // => pause café rdv dans 15 min 10h45 
+
+
+    // lorsque l'on est dans une équipe (ou même tout seul) qui utilise git 
+
+    1 créer un fichier , éditer et Enregistrer
+    2 fait des tests pour voir si la fonctionnalité est opérationnel => OK !! 
+    3 vous souhaitez garder une copie de cette version du projet dans le reposity 
+    4 git add nom-fichier
+    5 git commit -m "fonctionnalité ajouté"
+    
+    6 ajouter une nouvelle fonctionnalité => modifier un fichier  
+    7 Enregitrer
+    8 fait des tests pour voir si la fonctionnalité est opérationnel => OK !!
+    9 git add nom-fichier 
+    10 git commit -m "nouvelle fonctionnalité ajouté"
+    
+    /* cas pratique 
+        
+    créer un fichier index.html 
+    utiliser bootstrap 
+    dans cette page html => menu 
+
+    tester et tout fonctionne 
+    ajouter au repository 
+    
+    git add index.html
+
+    git commit -m "ajout d'une barre de menu bootstrap dans index.html"
+
+    pour visualiser le versionning => gitk / git log / git diff 
+
+    cas pratique 
+    1 dans le fichier index.html 
+    2 pouvez ajouter une première section  qui va contenu un formulaire (bootstrap)
+
+    2.a. titre de niveau 1 : Bienvenu
+    2.b formulaire avec 5 champs
+        nom 
+        email
+        menu déroulant origine France / Belgique / Allemagne / Tunisie
+        commentaire texte multiligne 
+        bouton de soumission
+    2.c tester dans votre navigateur pour confirmer que tout fonctionne bien 
+    3 enregistrer ce travail dans le répository (via des lignes de commandes)
+    */
+
+Attention !!!!!! 
+
+Vous ne pouvez pouvez pas faire de 
+git commit 
+si vous n'avez pas au préalable fait un git add
+
+il faut obligatoirement faire un 
+git add 
+PUIS faire un git commit
+
+il n'est pas possible de faire un git commit tout seul 
+
+git config --global user.name "Anne"
+git config --global user.email "mail@anne.fr"
+git config -l
+
+=> git commit -m ""
+
+who are you ?? 
+
+vous ne pouvez pas faire de commit si vous n'avez pas au préalable réalisé un add 
+
+coder dans un ou plusieurs fichiers 
+tester visuellement ou via script que tout est correct
+Enregistrer
+
+=> git add nom-fichier 
+=> git commit -m "commentaire"
+
+-----------------------------
+
+détail sur la commande git commit 
+
+ajouter une nouvelle section dans le fichier index.html
+juste un titre
+
+ <hr>
+<section class="row">
+    <h2>nouvelle section</h2>
+</section>
+
+git add index.html
+git commit 
+
+si vous vous oubliez de mettre l'option -m "message" sur la commande git commit
+=> mode vim 
+=> le terminal va se mettre en mode vim (word mais pour le terminal)
+=> je ne peux pas finaliser la commande git commit si je n'ai pas de message
+=> je te mets à disposition vim pour que tu écrives le message 
+pour écrire dans vim ous devez vous mettre en mode insertion en appuyant sur la touche i
+écrire votre message
+echap sortir du mode insertion
+:wq write and quit
+
+// 
+// dans le fichier index.html
+// ajouter une nouvelle section qui contient 
+// titre de niveau 1 
+// image de votre choix
+
+// enregistrer votre travail dans le repository 
+// git add nom-dufichier
+// git commit => obligé d'utiliser le mode vim de git commit 
+
+// git commit -m ""
+
+// si vous oubliez dans la commande 
+git commit => mode vim 
+i => mode insertion
+écrire
+Esc => stoper le mode insertion
+:wq => Enregistrer les modifications et quitter
+:q! => sortir sans enregistrer
+
+=> pause déjeuner 13h35 bon appétit 
