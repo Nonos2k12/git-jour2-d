@@ -1,0 +1,14 @@
+.miniature {
+    width:33.33%;
+    transition:1s transform;
+}
+.miniature.big {
+    transform:scale(1.2);
+}
+
+.navbar-nav, .form {
+    transition: 1s opacity;
+}
+.navbar-nav.hide, .form.hide {
+    opacity: 0;
+}
