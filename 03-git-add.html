@@ -1,0 +1,82 @@
+la commande git add => permet d'enregistrer un ou plusieurs fichiers  
+
+git add index.html 
+
+?? quelle commande utiliser si on a plusieurs fichiers que l'on veux valider simultanément 
+
+créer un nouveau fichier style.css 
+
+.miniature {
+    width:33.33%;
+    transition:1s transform
+}
+.miniature.big{
+    transform:scale(1.2);
+}
+
+créer un nouveau fichier script.js 
+
+document.querySelector(".miniature").addEventListener("click", function(e){
+    e.target.classList.toggle("big");
+})
+
+dans le fichier index.html dans la balise head 
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
+
+<figure class="d-flex">
+    <img src="https://source.unsplash.com/random/400x200" alt="" class="img-thumbnail miniature">
+    <img src="https://source.unsplash.com/random/400x201" alt="" class="img-thumbnail miniature">
+    <img src="https://source.unsplash.com/random/400x202" alt="" class="img-thumbnail miniature">
+</figure>
+
+=> vous venez de modifier 3 fichiers : style.css / script.js Et le fichier index.html 
+
+git add style.css script.js index.html
+Mais j'ai modifié 50 fichiers => et que je veux tous les enregistrer 
+
+git add * 
+valide TOUS les fichiers d'un coup 
+* caractère joker (wildcard) => tous les fichiers 
+git commit -m "ajout d'un effet de zoom sur les images de la galerie"
+
+
+// cas pratique
+lorsque vous allez cliquer sur le découverte git (qui est dans la barre de menu)
+
+la liste et le formulaire dans la nav vont disparaitre
+si vous recliquer que le texte découverte git  => faire réapparaitre la liste et le formulaire dans la nav
+
+// enregistrer dans le repository 
+
+// dans le repository => comment git va enregistrer les versions 
+créer un fichier nouveau par fichier et il va juste stocker le delta
+chaque fichier avec avoir un nom de fichier => id unique du commit 
+=> référence vers un prédécent fichier 
+
+git add * 
+git commit -m "effet sur la barre de menu"
+
+pour la commande git add *, il existe des variantes de cette commande 
+
+git add -A
+git add --all 
+git add . // attention cette dernière commande fonctionne uniquement pour les fichiers qui sont déjà suivi (déjà tracké)
+
+fichier tracked // fichier untracked 
+
+plusieurs fichiers js à valider 
+git add *.js 
+tous les fichiers .js dans le dossier en cours 
+
+tous les fichiers js et php dans le dossier encours 
+
+git add *.(php|js)
+
+je veux enregistrer tout ce qui est dans le dossier bootstrap 
+
+git add bootstrap/*
+
+j'ai besoin de copier tous les fichiers .js qui sont à la racine du projet et dans les sous dossier 
+
+git add **/*.js *.js

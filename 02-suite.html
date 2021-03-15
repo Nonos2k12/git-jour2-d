@@ -1,0 +1,76 @@
+style.css ajouter 
+
+.navbar-nav , .form{
+    transition: 1s opacity;
+}
+.navbar-nav.hide , .form.hide{
+    opacity: 0;
+}
+
+// dans le fichier script.js 
+
+document.querySelector(".navbar-brand").addEventListener("click", function(e){
+    e.preventDefault();
+    document.querySelector(".navbar-nav").classList.toggle("hide");
+    document.querySelector(".form").classList.toggle("hide");
+})
+
+// modifier le fichier index.html
+
+ <form class="d-flex ms-auto form">
+    <input type="text" class="form-control">
+    <input type="submit" class="btn btn-outline-danger ms-2">
+</form>
+
+
+
+//------------------------------------------------
+//------------------------------------------------
+
+dans le fichier script.js 
+
+document.querySelector(".miniature").addEventListener("click", function(e){
+    e.target.classList.toggle("big");
+})
+
+
+------------------------
+
+dans le fichier style.css 
+
+.miniature {
+    width:33.33%;
+    transition:1s transform
+}
+.miniature.big{
+    transform:scale(1.2);
+}
+
+------------------------
+
+dans le fichier index.html 
+
+dans la balise head
+
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
+
+
+<figure class="d-flex">
+    <img src="https://source.unsplash.com/random/400x200" alt="" class="img-thumbnail miniature">
+    <img src="https://source.unsplash.com/random/400x201" alt="" class="img-thumbnail miniature">
+    <img src="https://source.unsplash.com/random/400x202" alt="" class="img-thumbnail miniature">
+</figure>
+
+----------------
+commentaires : 
+
+=> vous venez de modifier 3 fichiers : style.css / script.js Et le fichier index.html 
+
+git add style.css script.js index.html
+Mais j'ai modifié 50 fichiers => et que je veux tous les enregistrer 
+
+git add * 
+valide TOUS les fichiers d'un coup 
+* caractère joker (wildcard) => tous les fichiers 
+git commit -m "ajout d'un effet de zoom sur les images de la galerie"
